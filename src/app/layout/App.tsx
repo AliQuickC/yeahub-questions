@@ -1,10 +1,14 @@
 import './App.sass';
+import { Outlet } from 'react-router-dom';
+import { Header } from '../../widgets/header';
+import { Footer } from '../../widgets/footer';
 
 function App() {
-
   return (
     <>
-      <h1>Questions</h1>
+      <Header />
+      <Outlet />
+      <Footer />
     </>
   );
 }
