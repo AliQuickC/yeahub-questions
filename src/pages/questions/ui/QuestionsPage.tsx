@@ -1,7 +1,14 @@
+import s from './QuestionsPage.module.sass';
+import { Questions } from './Questions/Questions';
+import { Filters } from './Filters/Filters';
+
 export function QuestionsPage() {
   return (
-    <main>
-      <h2>QuestionsPage</h2>
+    <main className={s.Main}>
+      <div className={s.MainContainer + ' container'}>
+        <Questions />
+        <Filters />
+      </div>
     </main>
   );
 }

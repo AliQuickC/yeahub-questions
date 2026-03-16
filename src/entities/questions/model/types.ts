@@ -1,4 +1,4 @@
-type QuestionsResponseData = {
+export type QuestionsResponseData = {
   id: number;
   title: string;
   slug: string;
