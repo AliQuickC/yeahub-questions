@@ -1,8 +1,7 @@
 import s from './Question.module.sass';
-
 import type { QuestionsResponseData } from '../../../entities/questions/model/types';
 import { useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { DetailsLink } from '../../detailed-answer';
 
 interface Props {
   data: QuestionsResponseData;
@@ -11,11 +10,11 @@ export function Question({ data }: Props) {
   const shortAnswer = useRef(null);
 
   useEffect(() => {
-    const htmlContent = data.shortAnswer;
-    if (shortAnswer.current) {
+    const htmlContent = data?.shortAnswer;
+    if (shortAnswer.current && htmlContent) {
       (shortAnswer.current as HTMLElement).innerHTML = htmlContent;
     }
-  }, []);
+  }, [data.shortAnswer]);
 
   return (
     <li className={s.Question}>
@@ -30,13 +29,7 @@ export function Question({ data }: Props) {
             xmlns="http://www.w3.org/2000/svg"
             className={s.AccordionIcon}
           >
-            <path
-              d="M5 7.5L10 12.5L15 7.5"
-              stroke="currentColor"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor"></path>
           </svg>
         </summary>
         <div className={s.Indicators}>
@@ -53,9 +46,7 @@ export function Question({ data }: Props) {
           {data.shortAnswer}
         </p>
 
-        <NavLink to={data.id.toString()} className={s.DetailsLink}>
-          Подробнее →
-        </NavLink>
+        {<DetailsLink id={data.id.toString()} />}
       </details>
     </li>
   );

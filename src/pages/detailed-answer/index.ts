@@ -1,3 +1,3 @@
-import { DetailedAnswerPage } from './ui/DetailedAnswer';
+import { DetailedAnswerPage } from './ui/DetailedAnswerPage';
 
 export { DetailedAnswerPage };

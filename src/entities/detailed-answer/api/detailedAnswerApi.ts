@@ -6,7 +6,7 @@ export const detailedAnswerApi = createApi({
   reducerPath: 'detailedAnswerApi',
   baseQuery: fetchBaseQuery({ baseUrl: base_url }),
   endpoints: (builder) => ({
-    getDetailedAnswer: builder.query<detailedAnswerResponse, string>({
+    getDetailedAnswer: builder.query<detailedAnswerResponse, string | undefined>({
       query: (id) => {
         return {
           url: 'questions/public-questions/' + id,

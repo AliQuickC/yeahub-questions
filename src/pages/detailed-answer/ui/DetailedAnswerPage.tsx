@@ -1,10 +1,11 @@
-import s from './DetailedAnswer.module.sass';
+import s from './DetailedAnswerPage.module.sass';
+import { DetailedAnswer } from './DetailedAnswer/DetailedAnswer';
 
 export function DetailedAnswerPage() {
   return (
     <main>
       <div className={s.MainContainer + ' container'}>
-        <h2>DetailedAnswer</h2>
+        <DetailedAnswer />
       </div>
     </main>
   );
