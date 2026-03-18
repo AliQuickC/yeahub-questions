@@ -1,21 +1,26 @@
 import s from './Questions.module.sass';
 import { QuestionsList } from '../../../../widgets/questions';
 import { Loader } from '../../../../shared/ui';
-import { useGetQuestionsListQuery } from '../../../../entities/questions/api/questionsApi';
 import { Pagination } from '../../../../features/pagination';
 import { useSearchParams } from 'react-router-dom';
-
-const SEARCH_PARAM_FIRST_PAGE = '1';
-const FIRST_PAGE = 1;
-const DEFAULT_QUESTIONS_ON_PAGE = 10;
-const DEFAULT_QUESTIONS_TOTAL = 1;
+import {
+  DEFAULT_QUESTIONS_ON_PAGE,
+  DEFAULT_QUESTIONS_TOTAL,
+  FIRST_PAGE,
+  SEARCH_PARAM_FIRST_PAGE,
+} from '../../../../shared/const/const';
+import { useGetQuestionsListQuery } from '../../../../entities/questions/api/questionsApi';
 
 export function Questions() {
   const [searchParams, setSearchParams] = useSearchParams();
+
   const page = searchParams.get('page') || SEARCH_PARAM_FIRST_PAGE;
+
+  const search = searchParams.get('search') || '';
 
   const { isError, isLoading, data } = useGetQuestionsListQuery({
     page: page,
+    title: search,
   });
 
   const handlePageClick = (page: number) => {

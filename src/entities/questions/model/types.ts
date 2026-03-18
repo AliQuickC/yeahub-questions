@@ -76,6 +76,7 @@ interface IFilters {
   page: string;
   limit: string;
   specializations: string[];
+  title: string;
 }
 
 export type QuestionsParamsType = Partial<IFilters>;
