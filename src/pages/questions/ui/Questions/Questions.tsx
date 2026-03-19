@@ -10,17 +10,27 @@ import {
   SEARCH_PARAM_FIRST_PAGE,
 } from '../../../../shared/const/const';
 import { useGetQuestionsListQuery } from '../../../../entities/questions/api/questionsApi';
+import { decodeUrl } from '../../../../shared/utility/url-code';
 
 export function Questions() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const page = searchParams.get('page') || SEARCH_PARAM_FIRST_PAGE;
-
-  const search = searchParams.get('search') || '';
+  const search = searchParams.get('search') || undefined;
+  const specializationId: string | undefined =
+    searchParams.get('specializations') || undefined;
+  const skills: string | undefined = searchParams.get('skills') || undefined;
+  const complexity: string | null =
+    searchParams.get('complexity');
+  const rate: string | undefined = searchParams.get('rate') || undefined;
 
   const { isError, isLoading, data } = useGetQuestionsListQuery({
     page: page,
     title: search,
+    specializationId,
+    skills,
+    complexity: complexity ? decodeUrl(complexity) : undefined,
+    rate,
   });
 
   const handlePageClick = (page: number) => {

@@ -1,4 +1,4 @@
-type SkillsResponseData = {
+export type SkillsResponseData = {
   id: number;
   title: string;
   slug: string;

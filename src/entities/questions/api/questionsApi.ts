@@ -8,12 +8,23 @@ export const questionsApi = createApi({
   endpoints: (builder) => ({
     getQuestionsList: builder.query<QuestionsResponse, QuestionsParamsType>({
       query: (params) => {
-        const { page = '1', title = '' } = params || {};
+        const {
+          page = '1',
+          title,
+          specializationId,
+          skills,
+          complexity,
+          rate,
+        } = params || {};
         return {
           url: 'questions/public-questions',
           params: {
             page,
             title,
+            specializationId,
+            skills,
+            complexity,
+            rate,
           },
         };
       },

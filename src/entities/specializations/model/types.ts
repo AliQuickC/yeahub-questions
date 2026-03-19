@@ -1,4 +1,4 @@
-type SpecializationsResponseData = {
+export type SpecializationsResponseData = {
   id: number;
   title: string;
   slug: string;

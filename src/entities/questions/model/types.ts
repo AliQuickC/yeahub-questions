@@ -75,8 +75,11 @@ export interface QuestionsResponse {
 interface IFilters {
   page: string;
   limit: string;
-  specializations: string[];
   title: string;
+  specializationId: string;
+  complexity: string;
+  skills: string;
+  rate: string;
 }
 
 export type QuestionsParamsType = Partial<IFilters>;
