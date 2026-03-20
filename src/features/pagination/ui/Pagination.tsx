@@ -1,23 +1,17 @@
 import s from './Pagination.module.sass';
+import { usePaginationQuestions } from '../../../shared/hooks/usePaginationQuestions';
 
 interface Props {
   page: number;
   limit: number;
   total: number;
-  handlePageClick: (page: number) => void;
-  handlePrevPage: (page: number) => void;
-  handleNextPage: (page: number, totalPages: number) => void;
 }
 
-export function Pagination({
-  total,
-  limit,
-  page,
-  handlePageClick,
-  handlePrevPage,
-  handleNextPage,
-}: Props) {
+export function Pagination({ total, limit, page }: Props) {
   const totalPages = Math.ceil(total / limit);
+
+  const { handleNextPage, handlePrevPage, handlePageClick } =
+    usePaginationQuestions();
 
   return (
     <div className={s.Pagination}>
