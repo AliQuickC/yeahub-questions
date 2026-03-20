@@ -2,6 +2,7 @@ import s from './Question.module.sass';
 import type { QuestionsResponseData } from '../../../entities/questions/model/types';
 import { useEffect, useRef } from 'react';
 import { DetailsLink } from '../../detailed-answer';
+import { AccordionIcon } from '../../../shared/assets';
 
 interface Props {
   data: QuestionsResponseData;
@@ -21,16 +22,7 @@ export function Question({ data }: Props) {
       <details className={s.Details}>
         <summary className={s.QuestionHeader}>
           <p className={s.QuestionTitle}>{data.title}</p>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={s.AccordionIcon}
-          >
-            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor"></path>
-          </svg>
+          {<AccordionIcon className={s.AccordionIcon} color="#6A0BFF" />}
         </summary>
         <div className={s.Indicators}>
           <div className={s.Raiting}>

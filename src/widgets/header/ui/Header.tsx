@@ -6,7 +6,7 @@ export function Header() {
     <header className="header">
       <div className={s.HeaderConteiner + ' container'}>
         <div className={s.MenuWrapper}>
-          <img src={headerLogo} alt="logo" />
+          <img src={headerLogo} alt="logo" className={s.HeaderLogo} />
 
           <nav>
             <ul className={s.Menu}>
