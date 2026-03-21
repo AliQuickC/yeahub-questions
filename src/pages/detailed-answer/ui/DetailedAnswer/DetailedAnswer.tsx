@@ -8,7 +8,7 @@ import { DetailsBack } from '../../../../features/detailed-answer';
 export function DetailedAnswer() {
   const { id } = useParams();
 
-  const { data, isError, isLoading } = useGetDetailedAnswerQuery(id);
+  const { data, isLoading, isError } = useGetDetailedAnswerQuery(id);
 
   const shortAnswer = useRef(null);
   const longAnswer = useRef(null);

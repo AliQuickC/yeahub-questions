@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
 import { Filter } from '../../../shared/filter';
 import type { RateData } from '../../../shared/types/FilterTypes';
 
@@ -12,10 +11,7 @@ const data: RateData[] = [
 ];
 
 export function Rate() {
-  const [searchParams] = useSearchParams();
-  const rate: string | null = searchParams.get('rate');
-
   return (
-    <Filter type={'rate'} header={FILTER_NAME} data={data} selected={rate} />
+    <Filter type={'rate'} header={FILTER_NAME} data={data} />
   );
 }

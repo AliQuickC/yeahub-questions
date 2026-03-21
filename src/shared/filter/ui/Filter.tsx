@@ -1,49 +1,57 @@
 import s from './Filter.module.sass';
 import { useSearchParams } from 'react-router-dom';
 import type { FilterItemList, FiltersType } from '../../types/FilterTypes';
-import { decodeUrl } from '../../utility/url-code';
 import { changeFilterParamHandler, isSelectedCheck } from '../utils/select';
+import { Loader } from '../../ui';
+import { useSelectedFilters } from '../../hooks/useSelectedFilters';
 
 interface Props {
   type: FiltersType;
   header: string;
-  data: FilterItemList;
-  selected: string | null;
+  data: FilterItemList | undefined;
+  isLoading?: boolean;
+  isError?: boolean;
 }
 
-export function Filter({ type, header, data, selected }: Props) {
+export function Filter({ type, header, data, isLoading, isError }: Props) {
   const [, setSearchParams] = useSearchParams();
 
-  let selectedItems: string | string[] | null;
-  if (selected === null) {
-    selectedItems = null;
-  } else if (type === 'skills' || type === 'rate') {
-    selectedItems = selected.split(',');
-  } else if (type === 'complexity') {
-    selectedItems = selected.split(',').map((item) => decodeUrl(item));
-  } else {
-    selectedItems = selected;
-  }
+  const selectedItems = useSelectedFilters(type);
 
-  const specializationsList = data.map((item) => {
-    const isSelected = isSelectedCheck(item.id.toString(), type, selectedItems);
-    return (
-      <li
-        key={item.id}
-        className={s.ListItem + (isSelected ? ` ${s.ActiveListItem}` : '')}
-        onClick={() => {
-          changeFilterParamHandler(type, item.id, setSearchParams);
-        }}
-      >
-        {item.title}
-      </li>
+  let filtersList;
+  if (isLoading) {
+    filtersList = <Loader width="100px" height="70px" />;
+  } else if (isError || !data) {
+    filtersList = (
+      <div
+        style={{ color: 'red' }}
+      >{`Не удалось загрузить список фильтров, для раздела "${header}" !`}</div>
     );
-  });
+  } else {
+    filtersList = data.map((item) => {
+      const isSelected = isSelectedCheck(
+        item.id.toString(),
+        type,
+        selectedItems
+      );
+      return (
+        <li
+          key={item.id}
+          className={s.ListItem + (isSelected ? ` ${s.ActiveListItem}` : '')}
+          onClick={() => {
+            changeFilterParamHandler(type, item.id, setSearchParams);
+          }}
+        >
+          {item.title}
+        </li>
+      );
+    });
+  }
 
   return (
     <div>
       <h3>{header}</h3>
-      <ul className={s.FilterList}>{specializationsList}</ul>
+      <ul className={s.FilterList}>{filtersList}</ul>
     </div>
   );
 }

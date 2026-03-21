@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
 import { Filter } from '../../../shared/filter';
 import type { ComplexityData } from '../../../shared/types/FilterTypes';
 
@@ -11,15 +10,11 @@ const data: ComplexityData[] = [
 ];
 
 export function Complexity() {
-  const [searchParams] = useSearchParams();
-  const complexity: string | null = searchParams.get('complexity');
-
   return (
     <Filter
       type={'complexity'}
       header={FILTER_NAME}
       data={data}
-      selected={complexity}
     />
   );
 }

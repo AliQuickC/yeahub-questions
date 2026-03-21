@@ -14,7 +14,7 @@ export function Questions() {
   const { page, search, specializationId, skills, complexity, rate } =
     useQuestionsSearchParams();
 
-  const { isError, isLoading, data } = useGetQuestionsListQuery({
+  const { data, isLoading, isError } = useGetQuestionsListQuery({
     page: page,
     title: search,
     specializationId,
