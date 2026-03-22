@@ -1,8 +1,9 @@
 import s from './Question.module.sass';
-import type { QuestionsResponseData } from '../../../entities/questions/model/types';
+import { AccordionIcon } from '../../../../shared/assets';
 import { useEffect, useRef } from 'react';
-import { DetailsLink } from '../../detailed-answer';
-import { AccordionIcon } from '../../../shared/assets';
+import type { QuestionsResponseData } from '../../../../entities/questions/model/types';
+import { DetailsLink } from '../../../detailed-answer';
+
 
 interface Props {
   data: QuestionsResponseData;

@@ -1,6 +1,6 @@
 import s from './QuestionsPage.module.sass';
 import { Questions } from './Questions/Questions';
-import { Filters } from './Filters/Filters';
+import { Filters } from '../../../widgets/questions/ui/QuestionsFilters/Filters';
 
 export function QuestionsPage() {
   return (

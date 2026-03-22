@@ -1,8 +1,8 @@
-export function codeUrl(complexityParam: string): string {
+export function urlCode(complexityParam: string): string {
   return complexityParam.split(',').join('-');
 }
 
-export function decodeUrl(
+export function urlDecode(
   complexityParam: string
 ): string {
   return complexityParam.split('-').join(',');

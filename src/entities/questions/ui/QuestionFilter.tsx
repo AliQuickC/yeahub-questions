@@ -1,9 +1,12 @@
-import s from './Filter.module.sass';
+import s from './QuestionFilter.module.sass';
 import { useSearchParams } from 'react-router-dom';
-import type { FilterItemList, FiltersType } from '../../types/FilterTypes';
-import { changeFilterParamHandler, isSelectedCheck } from '../utils/select';
-import { Loader } from '../../ui';
-import { useSelectedFilters } from '../../hooks/useSelectedFilters';
+import { changeFilterParamHandler, isSelectedCheck } from '../model/filter-select';
+import { Loader } from '../../../shared/ui';
+import { useSelectedFilters } from '../../../shared/hooks/useSelectedFilters';
+import type {
+  FilterItemList,
+  FiltersType,
+} from '../../../shared/types/FilterTypes';
 
 interface Props {
   type: FiltersType;
@@ -13,7 +16,7 @@ interface Props {
   isError?: boolean;
 }
 
-export function Filter({ type, header, data, isLoading, isError }: Props) {
+export function QuestionFilter({ type, header, data, isLoading, isError }: Props) {
   const [, setSearchParams] = useSearchParams();
 
   const selectedItems = useSelectedFilters(type);

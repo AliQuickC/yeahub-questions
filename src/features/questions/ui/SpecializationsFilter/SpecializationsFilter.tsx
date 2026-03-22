@@ -1,13 +1,13 @@
-import { useGetSpecializationsListQuery } from '../../../entities/specializations/api/specializationsApi';
-import { Filter } from '../../../shared/filter';
+import { QuestionFilter } from '../../../../entities/questions';
+import { useGetSpecializationsListQuery } from '../../../../entities/specializations/api/specializationsApi';
 
 const FILTER_NAME = 'Специализация';
 
-export function Specializations() {
+export function SpecializationsFilter() {
   const { data, isLoading, isError } = useGetSpecializationsListQuery({});
 
   return (
-    <Filter
+    <QuestionFilter
       type={'specializations'}
       header={FILTER_NAME}
       data={data?.data}

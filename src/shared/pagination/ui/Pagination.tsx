@@ -1,6 +1,6 @@
 import s from './Pagination.module.sass';
-import { usePaginationQuestions } from '../../../shared/hooks/usePaginationQuestions';
-import { NextIcon, PrevIcon } from '../../../shared/assets';
+import { usePaginationQuestions } from '../../hooks/usePaginationQuestions';
+import { NextIcon, PrevIcon } from '../../assets';
 
 interface Props {
   page: number;

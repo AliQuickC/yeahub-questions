@@ -1,6 +1,6 @@
 import type { SetURLSearchParams } from 'react-router-dom';
-import type { FiltersType } from '../../types/FilterTypes';
-import { codeUrl } from '../../utility/url-code';
+import type { FiltersType } from '../../../shared/types/FilterTypes';
+import { urlCode } from '../../../shared/utility/url-code';
 
 export function isSelectedCheck(
   id: string,
@@ -41,7 +41,7 @@ const paramsMultipleSelect = (
   setParams: SetURLSearchParams
 ) => {
   setParams((searchParams) => {
-    const newParamValue = type === 'complexity' ? codeUrl(id) : id;
+    const newParamValue = type === 'complexity' ? urlCode(id) : id;
     const oldParamsValue = searchParams.get(type);
 
     if (oldParamsValue === null) {

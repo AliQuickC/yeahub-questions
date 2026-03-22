@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { decodeUrl } from '../utility/url-code';
+import { urlDecode } from '../utility/url-code';
 import type { FiltersType } from '../types/FilterTypes';
 
 export const useSelectedFilters = (type: FiltersType) => {
@@ -12,7 +12,7 @@ export const useSelectedFilters = (type: FiltersType) => {
   } else if (type === 'skills' || type === 'rate') {
     selectedItems = selected.split(',');
   } else if (type === 'complexity') {
-    selectedItems = selected.split(',').map((item) => decodeUrl(item));
+    selectedItems = selected.split(',').map((item) => urlDecode(item));
   } else {
     selectedItems = selected;
   }

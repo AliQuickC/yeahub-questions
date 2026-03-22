@@ -1,7 +1,7 @@
 import s from './Questions.module.sass';
 import { QuestionsList } from '../../../../widgets/questions';
 import { Loader } from '../../../../shared/ui';
-import { Pagination } from '../../../../features/pagination';
+import { Pagination } from '../../../../shared/pagination';
 import {
   DEFAULT_QUESTIONS_ON_PAGE,
   DEFAULT_QUESTIONS_TOTAL,

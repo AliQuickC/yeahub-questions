@@ -1,7 +1,7 @@
 import s from './QuestionsList.module.sass';
 import type { QuestionsResponseData } from '../../../../entities/questions/model/types';
-import { Question } from '../../../../features/questions/ui/Question';
 import { QuestionsNotFound } from '../QuestionsNotFound/QuestionsNotFound';
+import { Question } from '../../../../features/questions';
 
 interface Props {
   questions: QuestionsResponseData[] | undefined;
