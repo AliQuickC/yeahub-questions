@@ -1,5 +1,5 @@
 import type { SetURLSearchParams } from 'react-router-dom';
-import type { FiltersType } from '../../../shared/types/FilterTypes';
+import type { FiltersType } from '../../../shared/type/FilterTypes';
 import { urlCode } from '../../../shared/utility/url-code';
 
 export function isSelectedCheck(

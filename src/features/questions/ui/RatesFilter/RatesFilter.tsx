@@ -1,5 +1,5 @@
 import { QuestionFilter } from '../../../../entities/questions';
-import type { RateData } from '../../../../shared/types/FilterTypes';
+import type { RateData } from '../../../../shared/type/FilterTypes';
 
 const FILTER_NAME = 'Рейтинг';
 const data: RateData[] = [

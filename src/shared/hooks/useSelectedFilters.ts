@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import { urlDecode } from '../utility/url-code';
-import type { FiltersType } from '../types/FilterTypes';
+import type { FiltersType } from '../type/FilterTypes';
 
 export const useSelectedFilters = (type: FiltersType) => {
   const [searchParams] = useSearchParams();

@@ -1,10 +1,10 @@
 import { useSearchParams } from 'react-router-dom';
 import { useActions } from '../../../../app/useActions';
 import { useFilters } from '../../../../app/useAppSelector';
-import { Search } from '../../../../shared/search';
 import { useDebounce } from '../../../../shared/hooks/useDebounce';
 import { useEffect } from 'react';
 import { SEARCH_PARAM_FIRST_PAGE } from '../../../../shared/const/const';
+import { Search } from '../../../../shared/ui/Search/Search';
 
 export function QuestionsSearch() {
   const { setFilters } = useActions();

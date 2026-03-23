@@ -1,5 +1,5 @@
 import { QuestionFilter } from '../../../../entities/questions';
-import type { ComplexityData } from '../../../../shared/types/FilterTypes';
+import type { ComplexityData } from '../../../../shared/type/FilterTypes';
 
 const FILTER_NAME = 'Уровень сложности';
 const data: ComplexityData[] = [

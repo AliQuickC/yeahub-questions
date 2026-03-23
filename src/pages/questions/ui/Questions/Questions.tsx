@@ -1,7 +1,6 @@
 import s from './Questions.module.sass';
 import { QuestionsList } from '../../../../widgets/questions';
 import { Loader } from '../../../../shared/ui';
-import { Pagination } from '../../../../shared/pagination';
 import {
   DEFAULT_QUESTIONS_ON_PAGE,
   DEFAULT_QUESTIONS_TOTAL,
@@ -9,6 +8,7 @@ import {
 } from '../../../../shared/const/const';
 import { useGetQuestionsListQuery } from '../../../../entities/questions/api/questionsApi';
 import { useQuestionsSearchParams } from '../../../../shared/hooks/useQuestionsSearchParams';
+import { Pagination } from '../../../../shared/ui/Pagination/Pagination';
 
 export function Questions() {
   const { page, search, specializationId, skills, complexity, rate } =

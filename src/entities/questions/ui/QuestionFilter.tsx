@@ -9,9 +9,9 @@ import { useSelectedFilters } from '../../../shared/hooks/useSelectedFilters';
 import type {
   FilterItemList,
   FiltersType,
-} from '../../../shared/types/FilterTypes';
-import { SwitchButton } from '../../../shared/switch-button';
+} from '../../../shared/type/FilterTypes';
 import { useState } from 'react';
+import { SwitchButton } from '../../../shared/ui/SwitchButton/SwitchButton';
 
 interface Props {
   type: FiltersType;
