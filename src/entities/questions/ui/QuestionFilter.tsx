@@ -1,12 +1,17 @@
 import s from './QuestionFilter.module.sass';
 import { useSearchParams } from 'react-router-dom';
-import { changeFilterParamHandler, isSelectedCheck } from '../model/filter-select';
+import {
+  changeFilterParamHandler,
+  isSelectedCheck,
+} from '../model/filter-select';
 import { Loader } from '../../../shared/ui';
 import { useSelectedFilters } from '../../../shared/hooks/useSelectedFilters';
 import type {
   FilterItemList,
   FiltersType,
 } from '../../../shared/types/FilterTypes';
+import { SwitchButton } from '../../../shared/switch-button';
+import { useState } from 'react';
 
 interface Props {
   type: FiltersType;
@@ -14,9 +19,22 @@ interface Props {
   data: FilterItemList | undefined;
   isLoading?: boolean;
   isError?: boolean;
+  haveSwitchButton?: boolean;
+  SwitchButtonHandler?: () => void;
 }
 
-export function QuestionFilter({ type, header, data, isLoading, isError }: Props) {
+const checkedTitle = 'Посмотреть все';
+const uncheckedTitle = 'Скрыть';
+
+export function QuestionFilter({
+  type,
+  header,
+  data,
+  isLoading,
+  isError,
+  haveSwitchButton,
+}: Props) {
+  const [hidden, setHidden] = useState<boolean>(true);
   const [, setSearchParams] = useSearchParams();
 
   const selectedItems = useSelectedFilters(type);
@@ -51,10 +69,24 @@ export function QuestionFilter({ type, header, data, isLoading, isError }: Props
     });
   }
 
+  const switchHandler = () => {
+    setHidden((value) => !value);
+  };
+
   return (
     <div>
       <h3>{header}</h3>
-      <ul className={s.FilterList}>{filtersList}</ul>
+      <ul className={s.FilterList + ` ${hidden ? s.FilterHidden : ''}`}>
+        {filtersList}
+      </ul>
+      {haveSwitchButton ? (
+        <SwitchButton
+          checkedTitle={checkedTitle}
+          uncheckedTitle={uncheckedTitle}
+          checked={hidden}
+          switchHandler={switchHandler}
+        />
+      ) : null}
     </div>
   );
 }

@@ -13,6 +13,7 @@ export function SpecializationsFilter() {
       data={data?.data}
       isLoading={isLoading}
       isError={isError}
+      haveSwitchButton={true}
     />
   );
 }
