@@ -1,0 +1,73 @@
+.Question
+  margin-bottom: 24px
+  text-align: left
+  box-shadow: 0px 4px 10px 0px #6A63761A
+  border-radius: 8px
+  padding-top: 15px
+  padding-right: 24px
+  padding-bottom: 15px
+  padding-left: 24px
+  border-bottom-width: 1px
+  list-style: none
+  font-weight: 500
+  font-size: 20px
+
+.QuestionHeader
+  position: relative
+  list-style: none
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.Indicators
+  margin-top: 20px
+  display: flex
+  gap: 40px
+
+.Raiting,  .Difficulty
+  height: 33
+  border-radius: 8px
+  display: flex
+  gap: 12px
+  angle: 0 deg
+  opacity: 1
+  background-color: #F8F8F8
+  & > span
+    padding-top: 6px
+    padding-bottom: 6px
+    padding-left: 10px
+  & > output
+    background-color: #6A0BFF
+    border-radius: 4px
+    padding-top: 6px
+    padding-bottom: 6px
+    padding-right: 8px
+    padding-left: 8px
+    color: #fff
+
+.AccordionIcon
+  color: #6A0BFF
+  min-width: 24px
+  min-height: 24px
+  transition: transform 1s ease-out .3s
+
+.Details[open] .AccordionIcon
+  transform: rotate(180deg)
+  transition: transform 1s ease-out .3s
+
+.QuestionTitle
+  padding-left: 20px
+  &::before
+    position: absolute
+    top: 30px
+    left: 0
+    content: ""
+    width: 8px
+    height: 8px
+    border-radius: 50%
+    background-color: #6A0BFF
+
+.ShortAnswer
+  color: #474747
+  font-size: 16px
+  font-weight: 500
