@@ -1,0 +1,32 @@
+.Pagination
+  text-align: centers
+  display: flex
+  flex-wrap: wrap
+  gap: 5px
+
+.PageNumber, .Arrow
+  border: none
+  background-color: white
+  cursor: pointer
+
+.PageNumber
+  padding-left: 3px
+  padding-right: 3px
+
+.Arrow
+  width: 28px
+  height: 28px
+  padding: 0
+  border-radius: 50%
+  border: 1px solid #6A0BFF
+  color: #6A0BFF
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  align-content: center
+
+.PageNumber:disabled, .Arrow:disabled
+  cursor: default
+
+.Arrow:disabled
+  border: 1px solid #B7B7B7
