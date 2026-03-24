@@ -1,6 +1,5 @@
 import s from './Questions.module.sass';
 import { QuestionsList } from '../../../../widgets/questions';
-import { Loader } from '../../../../shared/ui';
 import {
   DEFAULT_QUESTIONS_ON_PAGE,
   DEFAULT_QUESTIONS_TOTAL,
@@ -9,6 +8,7 @@ import {
 import { useGetQuestionsListQuery } from '../../../../entities/questions/api/questionsApi';
 import { useQuestionsSearchParams } from '../../../../shared/hooks/useQuestionsSearchParams';
 import { Pagination } from '../../../../shared/ui/Pagination/Pagination';
+import { Skeleton } from '../../../../shared/ui/Skeleton/Skeleton';
 
 export function Questions() {
   const { page, search, specializationId, skills, complexity, rate } =
@@ -29,7 +29,7 @@ export function Questions() {
       {isError ? (
         <h3>Ошибка получения данных с сервера!</h3>
       ) : isLoading ? (
-        <Loader />
+        <Skeleton count={DEFAULT_QUESTIONS_ON_PAGE} />
       ) : (
         <>
           <QuestionsList questions={data?.data} />

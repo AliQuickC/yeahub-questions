@@ -4,7 +4,6 @@ import {
   changeFilterParamHandler,
   isSelectedCheck,
 } from '../model/filter-select';
-import { Loader } from '../../../shared/ui';
 import { useSelectedFilters } from '../../../shared/hooks/useSelectedFilters';
 import type {
   FilterItemList,
@@ -12,6 +11,7 @@ import type {
 } from '../../../shared/type/FilterTypes';
 import { useState } from 'react';
 import { SwitchButton } from '../../../shared/ui/SwitchButton/SwitchButton';
+import { Loader } from '../../../shared/ui/Loader/Loader';
 
 interface Props {
   type: FiltersType;

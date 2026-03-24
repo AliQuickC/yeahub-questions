@@ -1,9 +1,9 @@
 import s from './DetailedAnswer.module.sass';
 import { useEffect, useRef } from 'react';
 import { useGetDetailedAnswerQuery } from '../../../../entities/detailed-answer/api/detailedAnswerApi';
-import { Loader } from '../../../../shared/ui';
 import { useParams } from 'react-router-dom';
 import { DetailsBack } from '../../../../features/detailed-answer';
+import { Loader } from '../../../../shared/ui/Loader/Loader';
 
 export function DetailedAnswer() {
   const { id } = useParams();
