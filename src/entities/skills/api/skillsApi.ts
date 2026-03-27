@@ -1,10 +1,7 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { base_url } from '../../../shared/const/const';
 import type { SkillsParamsType, SkillsResponse } from '../model/types';
+import baseApi from '../../../app/baseApi';
 
-export const skillsApi = createApi({
-  reducerPath: 'skillsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: base_url }),
+export const skillsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getskillsList: builder.query<SkillsResponse, SkillsParamsType>({
       query: (params) => {
@@ -16,6 +13,7 @@ export const skillsApi = createApi({
           },
         };
       },
+      providesTags: ['Skills'],
     }),
   }),
 });

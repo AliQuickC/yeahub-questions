@@ -1,10 +1,8 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { base_url } from '../../../shared/const/const';
-import type { QuestionsParamsType, QuestionsResponse } from '../model/types';
+import type { QuestionsParamsType, QuestionsResponse } from '../model/questions-types';
+import baseApi from '../../../app/baseApi';
+import type { detailedAnswerResponse } from '../model/answer-types';
 
-export const questionsApi = createApi({
-  reducerPath: 'questionsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: base_url }),
+export const questionsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getQuestionsList: builder.query<QuestionsResponse, QuestionsParamsType>({
       query: (params) => {
@@ -28,8 +26,21 @@ export const questionsApi = createApi({
           },
         };
       },
+      providesTags: ['Questions'],
+    }),
+    getDetailedAnswer: builder.query<
+      detailedAnswerResponse,
+      string | undefined
+    >({
+      query: (id) => {
+        return {
+          url: 'questions/public-questions/' + id,
+        };
+      },
+      providesTags: ['Questions'],
     }),
   }),
+  overrideExisting: false,
 });
 
-export const { useGetQuestionsListQuery } = questionsApi;
+export const { useGetQuestionsListQuery, useGetDetailedAnswerQuery } = questionsApi;

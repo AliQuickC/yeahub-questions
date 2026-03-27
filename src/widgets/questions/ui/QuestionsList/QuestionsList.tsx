@@ -1,5 +1,5 @@
 import s from './QuestionsList.module.sass';
-import type { QuestionsResponseData } from '../../../../entities/questions/model/types';
+import type { QuestionsResponseData } from '../../../../entities/questions/model/questions-types';
 import { QuestionsNotFound } from '../QuestionsNotFound/QuestionsNotFound';
 import { Question } from '../../../../features/questions';
 

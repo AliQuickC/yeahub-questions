@@ -1,13 +1,10 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { base_url } from '../../../shared/const/const';
 import type {
   SpecializationsParamsType,
   SpecializationsResponse,
 } from '../model/types';
+import baseApi from '../../../app/baseApi';
 
-export const specializationsApi = createApi({
-  reducerPath: 'specializationsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: base_url }),
+export const specializationsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getSpecializationsList: builder.query<
       SpecializationsResponse,
@@ -22,6 +19,7 @@ export const specializationsApi = createApi({
           },
         };
       },
+      providesTags: ['Specializations'],
     }),
   }),
 });

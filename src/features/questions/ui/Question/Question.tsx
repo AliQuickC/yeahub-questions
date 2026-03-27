@@ -1,7 +1,7 @@
 import s from './Question.module.sass';
 import { AccordionIcon } from '../../../../shared/assets';
 import { useEffect, useRef } from 'react';
-import type { QuestionsResponseData } from '../../../../entities/questions/model/types';
+import type { QuestionsResponseData } from '../../../../entities/questions/model/questions-types';
 import { DetailsLink } from '../../../detailed-answer';
 
 
