@@ -1,23 +1,12 @@
 import s from './Question.module.sass';
 import { AccordionIcon } from '../../../../shared/assets';
-import { useEffect, useRef } from 'react';
 import type { QuestionsResponseData } from '../../../../entities/questions/model/questions-types';
 import { DetailsLink } from '../../../detailed-answer';
-
 
 interface Props {
   data: QuestionsResponseData;
 }
 export function Question({ data }: Props) {
-  const shortAnswer = useRef(null);
-
-  useEffect(() => {
-    const htmlContent = data?.shortAnswer;
-    if (shortAnswer.current && htmlContent) {
-      (shortAnswer.current as HTMLElement).innerHTML = htmlContent;
-    }
-  }, [data.shortAnswer]);
-
   return (
     <li className={s.Question}>
       <details className={s.Details}>
@@ -35,9 +24,10 @@ export function Question({ data }: Props) {
             <output>{data.complexity}</output>
           </div>
         </div>
-        <p className={s.ShortAnswer} ref={shortAnswer}>
-          {data.shortAnswer}
-        </p>
+        <p
+          className={s.ShortAnswer}
+          dangerouslySetInnerHTML={{ __html: data?.shortAnswer }}
+        ></p>
 
         {<DetailsLink id={data.id.toString()} />}
       </details>
