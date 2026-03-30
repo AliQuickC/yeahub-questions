@@ -4,6 +4,8 @@ import { SpecializationsFilter } from './ui/SpecializationsFilter/Specialization
 import { SkillsFilter } from './ui/SkillsFilter/SkillsFilter';
 import { ComplexityFilter } from './ui/ComplexityFilter/ComplexityFilter';
 import { RatesFilter } from './ui/RatesFilter/RatesFilter';
+import { DetailsLink } from './ui/DetailsLink/DetailsLink';
+import { DetailsBack } from './ui/DetailsBack/DetailsBack';
 
 export {
   Question,
@@ -12,4 +14,6 @@ export {
   SkillsFilter,
   ComplexityFilter,
   RatesFilter,
+  DetailsLink,
+  DetailsBack,
 };

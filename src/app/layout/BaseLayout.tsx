@@ -1,9 +1,9 @@
-import './App.sass';
+import './BaseLayout.sass';
 import { Outlet } from 'react-router-dom';
 import { Header } from '../../widgets/header';
 import { Footer } from '../../widgets/footer';
 
-function App() {
+function BaseLayout() {
   return (
     <>
       <Header />
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default BaseLayout;

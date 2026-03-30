@@ -1,12 +1,12 @@
 import { createBrowserRouter, replace } from 'react-router-dom';
 import { DetailedAnswerPage } from '../pages/detailed-answer';
 import { QuestionsPage } from '../pages/questions';
-import App from './layout/App';
+import BaseLayout from './layout/BaseLayout';
 import { NotFound } from '../pages/notfound';
 
 export const appRouter = createBrowserRouter([
   {
-    element: <App />,
+    element: <BaseLayout />,
     errorElement: <div>Error</div>,
     children: [
       {
